@@ -1,11 +1,36 @@
 {
-  // "extends": ["@rocketseat/eslint-config/react"],
-  "plugins": ["simple-import-sort"],
-  "rules": {
-    "simple-import-sort/imports": "error"
+  "env": {
+    "browser": true,
+    "es2021": true
   },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:unused-imports/recommended"
+  ],
   "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": "latest"
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "unused-imports", "simple-import-sort"],
+  "rules": {
+    // Garante que os hooks estejam corretamente configurados
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+
+    // imports ordenados
+    "simple-import-sort/imports": "error",
+
+    // Algumas boas práticas adicionais
+    "no-console": "warn",
+    "no-debugger": "error",
+    "eqeqeq": ["error", "always"],
+    "curly": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
