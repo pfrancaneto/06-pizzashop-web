@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
 
-export function App() {
+export function AppLayout() {
   return (
     <div>
       <h1>Cabeçalho</h1>
