@@ -3,6 +3,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 import { z } from 'zod';
 
 const signInForm = z.object({
@@ -27,6 +28,7 @@ export function SignIn() {
     await new Promise((resolve) => setTimeout(resolve, 2000));
 
     reset();
+    toast.success('Foi enviado um link de validação para seu e-mail!');
   }
 
   return (
