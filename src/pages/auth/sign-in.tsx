@@ -1,3 +1,4 @@
+import { PageTitle } from '@/components/PageTitle';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -34,6 +35,7 @@ export function SignIn() {
 
   return (
     <>
+      <PageTitle title="Login" />
       <div className="p-8">
         <Button variant="ghost" asChild className="absolute top-8 right-8">
           <Link to="/sign-up">Novo estabelecimento</Link>

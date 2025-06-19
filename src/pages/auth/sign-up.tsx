@@ -1,9 +1,10 @@
+import { PageTitle } from '@/components/PageTitle';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
@@ -25,13 +26,20 @@ export function SignUp() {
     resolver: zodResolver(signUpForm)
   });
 
+  const navigate = useNavigate();
+
   async function handleSignUp(data: SignUpForm) {
     try {
       console.log(data);
 
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      toast.success('Foi enviado um link de validação para seu e-mail!');
+      toast.success('Restaurante cadastrado com sucesso!', {
+        action: {
+          label: 'Login',
+          onClick: () => navigate('/sign-in')
+        }
+      });
     } catch (error) {
       toast.error('Erro ao cadastrar restaurante!');
     }
@@ -39,6 +47,7 @@ export function SignUp() {
 
   return (
     <>
+      <PageTitle title="Cadastro" />
       <div className="p-8">
         <Button variant="ghost" asChild className="absolute top-8 right-8">
           <Link to="/sign-in">Fazer login</Link>
