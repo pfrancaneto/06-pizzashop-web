@@ -19,7 +19,7 @@ export function SignIn() {
     register,
     handleSubmit,
     reset,
-    formState: { isSubmitting, errors }
+    formState: { isSubmitting }
   } = useForm<SignInForm>({
     resolver: zodResolver(signInForm)
   });
@@ -55,9 +55,6 @@ export function SignIn() {
             <div className="space-y-2">
               <Label htmlFor="email">Seu e-mail</Label>
               <Input id="email" type="email" {...register('email')} />
-              {errors.email && (
-                <p className="text-sm text-red-600">{errors.email.message}</p>
-              )}
             </div>
 
             <Button disabled={isSubmitting} type="submit" className="w-full">
